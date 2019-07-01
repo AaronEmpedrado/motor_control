@@ -3,8 +3,9 @@
 // #define VOLTS_PER_COUNT (3.3/1024)    //10 bit voltage sampling (3mV resolution)
 #define READINGS 5					  //How many times to read our adc count to average
 /*Constants from the Linear fit of Current vs. ADC counts*/
-#define SLOPE 1.412
-#define INTERCEPT -723
+/*=> update these values if necessary (units of mA)*/
+#define SLOPE 1.53						//updated 7/1
+#define INTERCEPT -815
 
 /*Fucntion Prototypes*/
 void adc_setup(void);							//Configures our pins (using B0 for input)

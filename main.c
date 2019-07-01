@@ -16,7 +16,7 @@ static volatile int curr_PWM = 0;
 static volatile int DIRECTION = 0;
 /*Current control*/
 static volatile float Kp_curr = 0.3, Ki_curr = 0.05;     //Control gains for current
-static volatile int error_curr = 0, Eint_curr = 0;  //PI stuff for current
+static volatile float error_curr = 0, Eint_curr = 0;  //PI stuff for current
 static volatile int REFarray[PLOT_PTS];    //reference values to plot
 static volatile int CURarray[PLOT_PTS];    //measured values of the current
 static volatile float u_curr = 0;          //the PI controller for current
@@ -387,6 +387,7 @@ int main()
       /*Tests current control*/
       case 'k':
       {
+				Eint_curr = 0;						//reset the integral error when we want to run a new test
         set_mode(ITEST);
         while(!send){ //wait for the data to be populated
           ;
